@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="119.66436" height="40" viewBox="0 0 119.66436 40" role="img" aria-label="Placeholder for Apple's Download on the App Store badge">
+  <title>PLACEHOLDER — replace with Apple's official &quot;Download on the App Store&quot; badge</title>
+  <!--
+    ============================================================
+    PLACEHOLDER ASSET — NOT APPLE ARTWORK. DO NOT SHIP.
+    ============================================================
+    Apple's badge may only be used in its official, unmodified
+    form, downloaded from Apple Marketing Resources:
+      https://developer.apple.com/app-store/marketing/guidelines/#section-badges
+
+    This file exists so the layout is correct before the real
+    badge lands. The viewBox (119.66436 x 40) matches Apple's
+    official SVG exactly, so replacing this file is a drop-in
+    swap with no CSS or markup changes required.
+
+    Do not redraw or approximate Apple's badge.
+    ============================================================
+  -->
+  <rect x="0.5" y="0.5" width="118.66436" height="39" rx="6.5"
+        fill="none" stroke="#959595" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="59.83218" y="15.5" fill="#959595"
+        font-family="ui-sans-serif, -apple-system, Segoe UI, Roboto, sans-serif"
+        font-size="6.5" font-weight="600" letter-spacing="0.4"
+        text-anchor="middle">PLACEHOLDER</text>
+  <text x="59.83218" y="25" fill="#FEFDFF"
+        font-family="ui-sans-serif, -apple-system, Segoe UI, Roboto, sans-serif"
+        font-size="7.5" font-weight="600"
+        text-anchor="middle">App Store badge</text>
+  <text x="59.83218" y="33.5" fill="#959595"
+        font-family="ui-sans-serif, -apple-system, Segoe UI, Roboto, sans-serif"
+        font-size="5.5"
+        text-anchor="middle">swap for Apple official SVG</text>
+</svg>

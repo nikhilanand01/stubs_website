@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Privacy Policy — Stubs</title>
+<meta name="description" content="How Stubs handles your data: what we collect, how it is used, where it is stored, and how to delete your account and its contents.">
+
+<link rel="canonical" href="https://REPLACE_DOMAIN/privacy">
+<meta name="theme-color" content="#121212">
+
+<!-- Scaffold page: keep out of the index until the real policy text lands. -->
+<meta name="robots" content="noindex, follow">
+
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<link rel="preload" href="assets/AgenorNeue-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="page">
+
+  <header class="masthead shell">
+    <a class="wordmark" href="index.html">Stubs</a>
+  </header>
+
+  <main class="prose shell">
+
+    <h1 class="prose__title">Privacy Policy</h1>
+    <p class="prose__updated">Last updated <span class="todo">[TO BE COMPLETED]</span></p>
+
+    <!--
+      ======================================================================
+      SCAFFOLD ONLY — DO NOT PUBLISH AS IS.
+      ======================================================================
+      The live policy text lives in Notion:
+        https://app.notion.com/p/3014cd8e70a780158b33fc502eceb6ac
+
+      That URL resolves to a wiki *container*, and its body could not be
+      exported, so no policy prose has been written here. Every
+      [TO BE COMPLETED] marker below needs the real text pasted in.
+      Nothing in this file is legal language — the headings and the factual
+      one-liners come from the build ticket, not from a lawyer.
+
+      Once the real text is in:
+        1. delete the .notice block below
+        2. delete the <meta name="robots" content="noindex, follow"> above
+        3. set the "Last updated" date
+        4. re-check that the section list still matches the policy
+
+      Facts worth confirming against the app while filling this in
+      (observed in the iOS codebase, not asserted on the page yet):
+        - Supabase provides auth, Postgres, and object storage
+          (concert media lives in the "concert-media" bucket)
+        - row-level security scopes rows to the owning user
+        - concert deletion is a soft delete (sets deleted_at)
+        - full concert history is exportable as CSV from the app
+        - ticket-stub OCR runs on-device via Apple's Vision framework
+        - push notifications are used for upcoming-show reminders
+      ======================================================================
+    -->
+    <p class="notice">
+      <strong>This page is a scaffold.</strong> The section structure is in
+      place, but the policy text has not been written. Do not link to this
+      page from the App Store listing until every
+      <span class="todo">[TO BE COMPLETED]</span> below is replaced.
+    </p>
+
+    <h2>What we collect</h2>
+    <p>
+      Stubs collects your email address, your name, a user ID, and the content
+      you upload — photos, videos, and the concert entries you create.
+    </p>
+    <p><span class="todo">[TO BE COMPLETED]</span></p>
+
+    <h2>How it&rsquo;s used</h2>
+    <p>
+      Your data is used to run the app. Stubs does not use it for advertising
+      and does not sell it.
+    </p>
+    <p><span class="todo">[TO BE COMPLETED]</span></p>
+
+    <h2>Where it&rsquo;s stored</h2>
+    <p>
+      Stubs stores data with Supabase, which provides the PostgreSQL database
+      and the object storage that holds uploaded photos and videos.
+    </p>
+    <p><span class="todo">[TO BE COMPLETED]</span></p>
+
+    <h2>Third-party services</h2>
+    <p>
+      <span class="todo">[TO BE COMPLETED]</span> — list each third-party
+      service Stubs relies on and, for each one, exactly what data it
+      receives.
+    </p>
+
+    <h2>Data retention and account deletion</h2>
+    <p>
+      <span class="todo">[TO BE COMPLETED]</span> — how to delete an account,
+      what happens to uploaded photos, videos, and concert entries when it is
+      deleted, and how long anything is retained afterwards.
+    </p>
+
+    <h2>Children&rsquo;s privacy</h2>
+    <p>
+      Stubs is rated 4+. <span class="todo">[TO BE COMPLETED]</span>
+    </p>
+
+    <h2>Changes to this policy</h2>
+    <p><span class="todo">[TO BE COMPLETED]</span></p>
+
+    <h2>Contact</h2>
+    <p>
+      <span class="todo">[TO BE COMPLETED]</span> — a contact address for
+      privacy questions. This must be reachable; App Review checks it.
+    </p>
+
+  </main>
+
+  <footer class="footer shell">
+    <ul class="footer__list">
+      <li><a href="privacy.html" aria-current="page">Privacy Policy</a></li>
+      <li><a href="INSTAGRAM_URL" rel="me noopener">Instagram</a></li>
+      <li>&copy; 2026 Stubs</li>
+    </ul>
+  </footer>
+
+</div>
+</body>
+</html>
