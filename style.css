@@ -158,14 +158,17 @@ a { color: inherit; }
   padding-block: var(--space-l);
 }
 
+/* The official logotype, not live text. Height is the control dimension;
+   width: auto keeps the intrinsic aspect ratio, so there is no CLS. */
 .wordmark {
   display: inline-block;
-  font-family: var(--font-display);
-  font-size: var(--text-xl);
-  line-height: 1;
-  letter-spacing: var(--tracking-tight);
-  color: var(--text);
+  line-height: 0;
   text-decoration: none;
+}
+
+.wordmark img {
+  width: auto;
+  height: 24px;
 }
 
 /* ==========================================================================
@@ -203,12 +206,6 @@ a { color: inherit; }
 }
 
 .hero__cta { margin-top: var(--space-xl); }
-
-.hero__note {
-  margin-top: var(--space-m);
-  font-size: var(--text-xs);
-  color: var(--muted);
-}
 
 /* ==========================================================================
    #7 THE TICKET — signature element, CTA container.
@@ -254,11 +251,12 @@ a { color: inherit; }
 
 .ticket__name {
   margin-top: var(--space-s);
-  font-family: var(--font-display);
-  font-size: var(--text-2xl);
-  line-height: 1;
-  letter-spacing: var(--tracking-tight);
-  font-weight: 400;
+  line-height: 0;
+}
+
+.ticket__name img {
+  width: auto;
+  height: 30px;
 }
 
 .ticket__sub {
@@ -303,10 +301,7 @@ a { color: inherit; }
 
 .ticket__stub {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-s) var(--space-m);
   /* >= 11px on every side of a 44px badge satisfies Apple's clear-space
      rule (1/4 of badge height). */
   padding: var(--space-l);
@@ -326,13 +321,6 @@ a { color: inherit; }
 .badge img {
   width: 131.6px;
   height: 44px;
-}
-
-.ticket__terms {
-  font-size: var(--text-2xs);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--muted);
 }
 
 /* ==========================================================================

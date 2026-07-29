@@ -14,31 +14,32 @@ sitemap.xml     both URLs with lastmod
 assets/         font, icons, screenshots, OG image, badge
 ```
 
-Runtime page weight is **112 KB** for `index.html` (budget 200 KB) with **zero
+Runtime page weight is **144 KB** for `index.html` (budget 200 KB) with **zero
 external network requests**.
 
 ---
 
-## Blockers — this cannot go live yet
+## Blocker — this cannot go live yet
 
-Two things are genuinely missing and neither can be invented:
+One thing is genuinely missing and it cannot be invented:
 
-1. **The privacy policy text.** `privacy.html` is a *scaffold*. Every section
-   heading is in place, but the prose is `[TO BE COMPLETED]`. The Notion source
-   (`https://app.notion.com/p/3014cd8e70a780158b33fc502eceb6ac`) resolves to a
-   wiki *container* whose body could not be exported, and the URL is not
-   publicly readable, so no policy text could be carried over. Paste the real
-   text in, then delete the `.notice` block and the
-   `<meta name="robots" content="noindex, follow">` at `privacy.html:14`.
+**The privacy policy text.** `privacy.html` is a *scaffold*. Every section
+heading is in place, but the prose is `[TO BE COMPLETED]`. The Notion source
+(`https://app.notion.com/p/3014cd8e70a780158b33fc502eceb6ac`) resolves to a
+wiki *container* whose body could not be exported, and the URL is not publicly
+readable, so no policy text could be carried over. Paste the real text in, then
+delete the `.notice` block and the
+`<meta name="robots" content="noindex, follow">` at `privacy.html:14`.
 
-   > `privacy.html` currently carries `noindex` deliberately, so a page full of
-   > `[TO BE COMPLETED]` markers cannot get indexed if it ships early. It is
-   > still listed in `sitemap.xml` as specified. **Removing that one line is
-   > required for the page to ever rank.** This is the single easiest thing to
-   > forget in the whole handoff.
+> `privacy.html` currently carries `noindex` deliberately, so a page full of
+> `[TO BE COMPLETED]` markers cannot get indexed if it ships early. It is still
+> listed in `sitemap.xml` as specified. **Removing that one line is required
+> for the page to ever rank.** This is the single easiest thing to forget in
+> the whole handoff.
 
-2. **Apple's App Store badge.** `assets/app-store-badge.svg` is a labelled
-   placeholder, not Apple artwork. See "Assets still needed".
+Resolved since the first draft: Apple's official App Store badge is now in
+place, and the Instagram URL is set to
+`https://www.instagram.com/stubsdiary`.
 
 ---
 
@@ -67,18 +68,10 @@ grep -rl REPLACE_DOMAIN . | xargs sed -i '' 's/REPLACE_DOMAIN/your-domain.com/g'
 grep -rn REPLACE_DOMAIN .   # must print nothing
 ```
 
-### 2. `INSTAGRAM_URL` — 2 occurrences, 2 files
+### 2. `INSTAGRAM_URL` — ✅ done
 
-The owner supplies the handle. Both are the footer Instagram link.
-
-| File | Line |
-|---|---|
-| `index.html` | 147 |
-| `privacy.html` | 127 |
-
-```sh
-grep -rl INSTAGRAM_URL . | xargs sed -i '' 's|INSTAGRAM_URL|https://www.instagram.com/YOUR_HANDLE/|g'
-```
+Set to `https://www.instagram.com/stubsdiary` in the footer of both
+`index.html` and `privacy.html`. No placeholder remains.
 
 ### 3. Other pre-launch edits
 
@@ -97,8 +90,9 @@ files in this repo — no stock imagery, no redrawn icons.
 
 | File | Status | Required size | Notes |
 |---|---|---|---|
-| `app-store-badge.svg` | ⚠️ **PLACEHOLDER** | viewBox `119.66436 × 40` | Download the official black "Download on the App Store" SVG from [Apple Marketing Resources](https://developer.apple.com/app-store/marketing/guidelines/#section-badges) and overwrite this file. The viewBox matches Apple's exactly, so it is a **drop-in swap** — no HTML or CSS changes. Do not redraw it. |
-| `og-image.png` | ✅ generated, replace if you want art direction | 1200 × 630 | Composed here from the real app icon, the real AgenorNeue face, and the ticket motif. Functional and on-brand, but it is not a designed piece — swap it if you'd rather have one. |
+| `app-store-badge.svg` | ✅ **final** | viewBox `119.66407 × 40` | Apple's official black "Download on the App Store" badge (`Download_on_the_App_Store_Badge_US-UK_RGB_blk_4SVG_092917`). Rendered at 44 px tall — above Apple's 40 px web minimum — with ≥16 px clear space on all sides, which clears Apple's 1/4-of-height rule. Never redraw or recolour it. |
+| `text_logo_white.png` | ✅ final | 400 × 140 | The official logotype, used for the header wordmark (24 px tall) and the ticket's event name (30 px tall). **Resized for web from 3191 × 1115 (65 KB → 15 KB)**; the untouched master lives at `../Stubs-logos/Logo/02. PNG/text_logo_white.png`. Sized by `height` with `width: auto`, so replacing it with a different aspect ratio needs no CSS change. |
+| `og-image.png` | ✅ generated, replace if you want art direction | 1200 × 630 | Composed here from the real app icon, the real AgenorNeue face, and the ticket motif. Functional and on-brand, but it is not a designed piece — swap it if you'd rather have one. Note it still shows the wordmark set in AgenorNeue rather than the logotype PNG. |
 | `screenshot-1..3.webp` | ✅ final | 445 × 905 | Cropped from `../app_store_screenshots/Screenshot 2026-03-21…png` (device frames kept, grey mockup background replaced with `#121212`). Home / Concerts list / Profile stats. |
 | `favicon.ico` | ✅ final | 16, 32, 48 | From `../Stubs-logos/App Icon/Stubs - App Icon - 1024 x 1024.png`. |
 | `favicon-32.png` | ✅ final | 32 × 32 | Same source. |
@@ -115,9 +109,9 @@ pyftsubset ../swift/LISTD/Fonts/AgenorNeue-Regular.otf \
   --layout-features="kern,liga,calt" --desubroutinize --no-hinting
 ```
 
-The wordmark is set in AgenorNeue as live text rather than an image. If you'd
-rather use the official logotype, `../Stubs-logos/Logo/03. SVG/Stubs - Logo -
-Text - W.svg` is the asset — it costs one extra request.
+The header wordmark and the ticket's event name both use the logotype PNG. The
+webfont is still required — it sets the `<h1>`, the feature lead-ins, the
+"ADMIT ONE" line, and every heading on the privacy page.
 
 ---
 
@@ -127,7 +121,7 @@ Text - W.svg` is the asset — it costs one extra request.
 - [ ] Verify the domain in [Bing Webmaster Tools](https://www.bing.com/webmasters) and submit the same sitemap
 - [ ] **App Store Connect** → App Privacy → replace the Notion privacy-policy URL with `https://your-domain/privacy`
 - [ ] **In the app** → Settings screen → update the privacy-policy link to the same URL
-- [ ] Update the Instagram bio link to the new domain
+- [ ] Update the [@stubsdiary](https://www.instagram.com/stubsdiary) bio link to the new domain
 - [ ] Confirm `/privacy` (no extension) resolves — see below
 - [ ] Confirm Safari on iOS shows the Smart App Banner on the homepage
 - [ ] Run the [Rich Results Test](https://search.google.com/test/rich-results) against the homepage — the `SoftwareApplication` block should parse clean
