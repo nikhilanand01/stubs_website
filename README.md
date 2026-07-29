@@ -7,11 +7,11 @@ directory.
 
 ```
 index.html      landing page
-privacy.html    privacy policy  (SCAFFOLD — see "Blockers" below)
+privacy.html    privacy policy — full text, last updated 2026-02-08
 style.css       single stylesheet; design tokens in block #1
 robots.txt      allow all + sitemap pointer
 sitemap.xml     both URLs with lastmod
-assets/         font, icons, screenshots, OG image, badge
+assets/         font, logotype, icons, screenshots, OG image, badge
 ```
 
 Runtime page weight is **144 KB** for `index.html` (budget 200 KB) with **zero
@@ -19,27 +19,34 @@ external network requests**.
 
 ---
 
-## Blocker — this cannot go live yet
+## Status
 
-One thing is genuinely missing and it cannot be invented:
+No blockers. Everything that needed owner input has landed: the real privacy
+policy text, Apple's official App Store badge, the official logotype, and the
+Instagram URL (`https://www.instagram.com/stubsdiary`).
 
-**The privacy policy text.** `privacy.html` is a *scaffold*. Every section
-heading is in place, but the prose is `[TO BE COMPLETED]`. The Notion source
-(`https://app.notion.com/p/3014cd8e70a780158b33fc502eceb6ac`) resolves to a
-wiki *container* whose body could not be exported, and the URL is not publicly
-readable, so no policy text could be carried over. Paste the real text in, then
-delete the `.notice` block and the
-`<meta name="robots" content="noindex, follow">` at `privacy.html:14`.
+The only remaining pre-launch step is the domain — see below.
 
-> `privacy.html` currently carries `noindex` deliberately, so a page full of
-> `[TO BE COMPLETED]` markers cannot get indexed if it ships early. It is still
-> listed in `sitemap.xml` as specified. **Removing that one line is required
-> for the page to ever rank.** This is the single easiest thing to forget in
-> the whole handoff.
+### Worth a second look on the privacy policy
 
-Resolved since the first draft: Apple's official App Store badge is now in
-place, and the Instagram URL is set to
-`https://www.instagram.com/stubsdiary`.
+The text is published **verbatim** as supplied. Three things in it are the
+owner's call, not bugs, but each is cheap to fix now and awkward later:
+
+1. **Age floor vs. App Store rating.** The policy says Stubs "is not intended
+   for users under the age of 13," but the App Store listing is rated **4+**,
+   which represents the app as suitable from age 4. App Review has flagged this
+   kind of mismatch before. Either raise the rating or soften the clause.
+2. **A personal email is published.** The Contact section lists
+   `nikhil.anand.ideas@gmail.com` alongside `contactstubs@gmail.com`. Once this
+   page is indexed, that address is permanently scrapeable — and the Data
+   Controller section already gives `contactstubs@gmail.com` on its own.
+   Consider dropping the personal one.
+3. **"Legal bases" lists purposes, not bases.** Under GDPR Art. 6 the legal
+   bases are consent, contract, legitimate interests, legal obligation, and so
+   on. The list under that heading is a list of *purposes*. The section is
+   fine as a purposes list — it just should not be introduced as legal bases.
+
+Nothing here was changed unilaterally; the page matches what was supplied.
 
 ---
 
@@ -75,11 +82,10 @@ Set to `https://www.instagram.com/stubsdiary` in the footer of both
 
 ### 3. Other pre-launch edits
 
-- `privacy.html:14` — delete the `noindex` meta (see Blockers).
-- `privacy.html` — replace every `[TO BE COMPLETED]`, delete the `.notice`
-  block, set the **Last updated** date.
 - `sitemap.xml` — bump both `<lastmod>` values (currently `2026-07-29`).
-- `index.html:148` / `privacy.html:128` — the copyright reads `© 2026 Stubs`.
+- The footers read `© 2026 Stubs` — update at the turn of the year.
+- The privacy page's **Last updated** date (`2026-02-08`) lives in both the
+  visible text and a `<time datetime>` attribute. Change both together.
 
 ---
 

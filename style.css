@@ -384,6 +384,9 @@ a { color: inherit; }
    #10 PROSE — privacy page
    ========================================================================== */
 
+/* Sits inside .shell, so it starts at the shell's content edge and lines up
+   with the header wordmark. Do not put .prose and .shell on one element —
+   both set max-width and the measure would win, centring the column. */
 .prose {
   padding-block: var(--space-xl) var(--space-4xl);
   max-width: var(--measure);
@@ -422,6 +425,18 @@ a { color: inherit; }
 .prose ul { padding-left: 1.25em; list-style: disc; }
 .prose li { margin-top: var(--space-xs); }
 
+.prose strong {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.prose address {
+  margin-top: var(--space-m);
+  font-style: normal;   /* <address> is semantic here, not italic copy */
+  line-height: var(--leading-loose);
+  color: var(--muted);
+}
+
 .prose a {
   color: var(--text);
   text-decoration: underline;
@@ -430,31 +445,6 @@ a { color: inherit; }
 }
 
 .prose a:hover { text-decoration-color: var(--text); }
-
-/* Scaffolding callout — delete along with the placeholder copy. */
-.notice {
-  margin-top: var(--space-l);
-  padding: var(--space-m) var(--space-l);
-  border: 1px dashed var(--line-strong);
-  border-radius: var(--radius-m);
-  background: var(--surface);
-  line-height: var(--leading-body);
-  color: var(--muted);
-}
-
-.notice strong { color: var(--text); }
-
-/* Scaffolding marker — remove with the placeholder copy. */
-.todo {
-  display: inline-block;
-  padding: 0.1em 0.45em;
-  border: 1px dashed var(--line-strong);
-  border-radius: var(--radius-s);
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.8em;
-  letter-spacing: 0.04em;
-  color: var(--text);
-}
 
 /* ==========================================================================
    #11 FOOTER
