@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>og-image source</title>
+<!--
+  SOURCE FOR assets/og-image.png (1200x630 link preview card).
+
+  The PNG is what iMessage, Slack, Twitter etc. actually show. It is a flat
+  image, so editing the site copy does NOT change it. Edit this file, then
+  re-render from the repo root:
+
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+    --headless --disable-gpu --hide-scrollbars --force-device-scale-factor=1 \
+    --window-size=1200,630 --screenshot=assets/og-image.png \
+    assets/og-image.source.html
+
+  Then update og:image:alt in index.html to match the new wording.
+  Colours and type below are the tokens from style.css :root.
+-->
+<style>
+@font-face {
+  font-family: "Agenor Neue";
+  src: url(AgenorNeue-Regular.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { width: 1200px; height: 630px; }
+
+body {
+  background: #121212;                /* --bg */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.card {
+  width: 1104px;
+  height: 534px;
+  background: #1e1e1e;                /* --surface */
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.top { flex: 1; padding: 52px 56px 0; }
+
+.brand { display: flex; align-items: center; gap: 22px; }
+.brand img { width: 104px; height: 104px; border-radius: 24px; display: block; }
+.brand span {
+  font-family: "Agenor Neue";
+  font-size: 66px;
+  line-height: 1;
+  letter-spacing: -0.02em;            /* --tracking-tight */
+  color: #fefdff;                     /* --text */
+}
+
+.headline {
+  margin-top: 74px;
+  font-family: "Agenor Neue";
+  font-size: 78px;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  color: #fefdff;
+}
+
+/* The tear line, with a notch punched out of each edge of the card. */
+.perf {
+  position: relative;
+  height: 0;
+  margin: 0 56px;
+  border-top: 2px dashed rgba(254, 253, 255, 0.22);   /* --line-strong */
+}
+.perf::before,
+.perf::after {
+  content: "";
+  position: absolute;
+  top: -22px;
+  width: 22px;
+  height: 44px;
+  background: #121212;
+}
+.perf::before { left: -56px;  border-radius: 0 22px 22px 0; }
+.perf::after  { right: -56px; border-radius: 22px 0 0 22px; }
+
+.stub {
+  height: 118px;
+  padding: 0 56px;
+  display: flex;
+  align-items: center;
+}
+.stub p {
+  font-family: "Agenor Neue";
+  font-size: 29px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: #b4ff13;                     /* --accent, CTA only */
+}
+</style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="top">
+      <div class="brand">
+        <img src="icon-512.png" alt="">
+        <span>Stubs</span>
+      </div>
+      <p class="headline">Your Live Music Diary</p>
+    </div>
+
+    <div class="perf"></div>
+
+    <div class="stub">
+      <p>Download on the App Store</p>
+    </div>
+  </div>
+</body>
+</html>
