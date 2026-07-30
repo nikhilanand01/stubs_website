@@ -370,6 +370,15 @@ a { color: inherit; }
   color: var(--muted);
 }
 
+/* Hint that the three items above are a sample, not the whole app. */
+.features__more {
+  margin-block-start: var(--space-l);
+  text-align: right;
+  font-size: var(--text-sm);
+  line-height: var(--leading-body);
+  color: var(--muted);
+}
+
 .features__list b {
   display: block;
   font-family: var(--font-display);
